@@ -18,15 +18,24 @@
 #define OLED_RESET 4
 Adafruit_SSD1306 display(128, 64, &Wire, OLED_RESET);
 
+//define the temp setpoint limits
+#define MAX_TEMP 70
+#define MIN_TEMP 50
+
+//define the time to switch display cycles in milliseconds
+#define DELAY 2000
+
 //Initialize the dht object
 DHT dht(DHTPIN, DHTTYPE);
 
 
 //Initialize our variables
-float humid;
-float tempF;
-float tempC;
+int humid;
+int tempF;
 int tempSelect;
+int currentTime;
+int oldTime = 0;
+bool dispTemp = true;
 
 void setup()
 {
@@ -40,24 +49,39 @@ void setup()
 
 void loop()
 {
-    getTempHumid();
-    //getTempSetting();
+    getSensors();
+    updateDisp(dispTemp);
     display.display();
-    delay(2000);	
+    currentTime = millis();
+    
+    if (currentTime - oldTime > DELAY) {
+        if (dispTemp == true) {
+            dispTemp = false;
+        }
+        else {
+            dispTemp = true;
+        }
+        oldTime = currentTime;
+    }
+    
+    delay(1);
 }
 
-void getTempHumid() 
-{   
-    humid = dht.readHumidity();
-    tempC = dht.readTemperature();
-    tempF = dht.readTemperature(true);
+void getSensors()
+{
+    tempSelect = map(analogRead(POTPIN), 0, 1020, MIN_TEMP, MAX_TEMP);
+    tempF = (int)dht.readTemperature(true);
+    humid = (int)dht.readHumidity();
+}
 
-    if (isnan(humid) || isnan(tempC) || isnan(tempF)) {
+void updateDisp(bool dataSelect)
+{
+    if (isnan(humid) || isnan(tempF)) {
         display.clearDisplay();
         display.setTextColor(WHITE);
         display.setTextSize(1);
         display.setCursor(5,0);
-        display.print("Failed to read from DHT sensor!");
+        display.print("Failed to read temperature!");
         return;
     }
 
@@ -65,28 +89,21 @@ void getTempHumid()
     display.setTextColor(WHITE);
     display.setTextSize(2);
     display.setCursor(0, 1);
-    display.print("Cellar");
-    display.setTextSize(1);
-    display.setCursor(0,20);
-    display.print("Humidity: ");
-    display.print(humid);
-    display.print(" %\t");
-    display.setCursor(0,30);
-    display.print("Temperature: ");
-    display.print(tempC);
-    display.print(" C");
-    display.setCursor(0,40);
-    display.print("Temperature: ");
-    display.print(tempF);
-    display.print(" F");
-}
-
-void getTempSetting()
-{
-    tempSelect = map(analogRead(POTPIN), 0, 1024, 50, 70);
-    display.clearDisplay();
-    display.setTextColor(WHITE);
-    display.setTextSize(2);
-    display.setCursor(0,20);
+    display.print("Set: ");
     display.print(tempSelect);
+    display.print(" F");
+
+    if (dataSelect == true) {
+        display.setTextSize(5);
+        display.setCursor(30,25);
+        display.print(tempF);
+        display.setTextSize(3);
+        display.print((char)247);
+    }
+    else {
+        display.setTextSize(5);
+        display.setCursor(20,25);
+        display.print(humid);
+        display.print("%\t");
+    }
 }
