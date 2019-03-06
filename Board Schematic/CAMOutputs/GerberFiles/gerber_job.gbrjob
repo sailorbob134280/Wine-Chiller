@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-02-14T01:06:55Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "main_board"
+        },
+        "Owner": "Jackson Smith <jackson.smith134280@gmail.com>",
+        "Size": {
+            "X": 58.4,
+            "Y": 108.89
+        }
+    }
+}
