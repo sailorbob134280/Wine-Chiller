@@ -8,6 +8,9 @@
 //define the potentiometer pin on analog 1
 #define POTPIN A0
 
+//define the relay pin on digital 13
+#define RELAY_PIN 13
+
 //Sensor on digital pin 2
 #define DHTPIN 2
 
@@ -18,12 +21,14 @@
 #define OLED_RESET 4
 Adafruit_SSD1306 display(128, 64, &Wire, OLED_RESET);
 
-//define the temp setpoint limits
+//define the temp setpoint limits, margin, and delay before chiller can change states
 #define MAX_TEMP 70
 #define MIN_TEMP 50
+#define MARGIN 2
+#define CHILLER_DELAY 10000
 
 //define the time to switch display cycles in milliseconds
-#define DELAY 2000
+#define DISPLAY_CYCLE 2000
 
 //Initialize the dht object
 DHT dht(DHTPIN, DHTTYPE);
@@ -34,14 +39,20 @@ int humid;
 int tempF;
 int tempSelect;
 int currentTime;
-int oldTime = 0;
+int displayTime = 0;
+int chillerTime = 0;
 bool dispTemp = true;
+bool chillerState = false;
 
 void setup()
 {
     //Initialize the I2C interface and sensor
 	Wire.begin();
     dht.begin();
+
+    //set digital pinmode
+    pinMode(RELAY_PIN, OUTPUT);
+    digitalWrite(RELAY_PIN, LOW);
 
     //Initialize the display
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
@@ -50,18 +61,32 @@ void setup()
 void loop()
 {
     getSensors();
+    currentTime = millis();
+
+    if (currentTime - chillerTime > CHILLER_DELAY) {    
+        if (tempF > tempSelect + MARGIN && chillerState == false) {
+            chillerState = true;
+            digitalWrite(RELAY_PIN, HIGH);
+        }
+        else if (tempF < tempSelect - MARGIN && chillerState == true) {
+            chillerState = false;
+            digitalWrite(RELAY_PIN, LOW);
+        
+        chillerTime = currentTime;
+        }     
+    }
+
     updateDisp(dispTemp);
     display.display();
-    currentTime = millis();
     
-    if (currentTime - oldTime > DELAY) {
+    if (currentTime - displayTime > DISPLAY_CYCLE) {
         if (dispTemp == true) {
             dispTemp = false;
         }
         else {
             dispTemp = true;
         }
-        oldTime = currentTime;
+        displayTime = currentTime;
     }
     
     delay(1);
