@@ -2,5 +2,5 @@
     "sketch": "chiller_main.ino",
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328old",
-    "port": "COM4"
+    "port": "COM6"
 }

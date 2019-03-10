@@ -6,13 +6,15 @@
 
 
 //define the potentiometer pin on analog 1
-#define POTPIN A0
+#define POTPIN A1
 
-//define the relay pin on digital 13
-#define RELAY_PIN 13
+//define the relay pin on digital 12
+#define RELAY_PIN 11
 
-//Sensor on digital pin 2
+//Sensor on digital pin 2, backup sensor on pin 6, and bottle probe on pin 9
 #define DHTPIN 2
+#define INT_PROBE 6
+#define EXT_PROBE 9
 
 //Sensor is a DHT22 sensor
 #define DHTTYPE DHT22
@@ -46,13 +48,13 @@ bool chillerState = false;
 
 void setup()
 {
-    //Initialize the I2C interface and sensor
-	Wire.begin();
-    dht.begin();
-
     //set digital pinmode
     pinMode(RELAY_PIN, OUTPUT);
     digitalWrite(RELAY_PIN, LOW);
+
+    //Initialize the I2C interface and sensor
+	Wire.begin();
+    dht.begin();
 
     //Initialize the display
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
@@ -94,9 +96,14 @@ void loop()
 
 void getSensors()
 {
-    tempSelect = map(analogRead(POTPIN), 0, 1020, MIN_TEMP, MAX_TEMP);
+    tempSelect = map(analogRead(POTPIN), 1020, 0, MIN_TEMP, MAX_TEMP);
+
     tempF = (int)dht.readTemperature(true);
     humid = (int)dht.readHumidity();
+
+    if (isnan(tempF) || isnan(humid)) {
+        
+    }
 }
 
 void updateDisp(bool dataSelect)
