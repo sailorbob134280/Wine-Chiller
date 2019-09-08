@@ -1,0 +1,77 @@
+SparkFun 16x2 SerLCD - RGB on Black 3.3V - LCD-14073 - SparkFun Electronics
+https://www.sparkfun.com/products/14073
+
+Pro Micro - 5V/16MHz - DEV-12640 - SparkFun Electronics
+https://www.sparkfun.com/products/12640
+
+SparkFun Differential I2C Breakout - PCA9615 (Qwiic) - BOB-14589 - SparkFun Electronics
+https://www.sparkfun.com/products/14589
+
+RJ11 6-Pin Connector - PRT-00132 - SparkFun Electronics
+https://www.sparkfun.com/products/132
+
+SparkFun Solder-able Breadboard - Mini - PRT-12702 - SparkFun Electronics
+https://www.sparkfun.com/products/12702
+
+SparkFun Logic Level Converter - Bi-Directional - BOB-12009 - SparkFun Electronics
+https://www.sparkfun.com/products/12009
+
+Rotary Potentiometer - 10k Ohm, Linear - COM-09939 - SparkFun Electronics
+https://www.sparkfun.com/products/9939
+
+Black Metal Knob - 14x24mm - COM-10002 - SparkFun Electronics
+https://www.sparkfun.com/products/10002
+
+Relay SPDT Sealed - 20A - COM-10924 - SparkFun Electronics
+https://www.sparkfun.com/products/10924
+
+Power Accessories - SparkFun Electronics
+https://www.sparkfun.com/categories/353
+
+Humidity and Temperature Sensor - RHT03 - SEN-10167 - SparkFun Electronics
+https://www.sparkfun.com/products/10167
+
+Temperature Sensor - Waterproof (DS18B20) - SEN-11050 - SparkFun Electronics
+https://www.sparkfun.com/products/11050
+
+SparkFun Beefcake Relay Control Kit (Ver. 2.0) - KIT-13815 - SparkFun Electronics
+https://www.sparkfun.com/products/13815
+
+AVR-Based Serial Enabled LCDs Hookup Guide - learn.sparkfun.com
+https://learn.sparkfun.com/tutorials/avr-based-serial-enabled-lcds-hookup-guide/hardware-overview
+
+Electro-Mechanical Relays | Relays / Timers | Products | AutomationDirect
+https://www.automationdirect.com/adc/shopping/catalog/relays_-z-_timers/electro-mechanical_relays
+
+G8P-1A4P-DC12 Omron Electronics | Mouser
+https://www.mouser.com/ProductDetail/Omron-Electronics/G8P-1A4P-DC12?qs=Rh%252baoYk36r7RCFqGn7h4TA%3D%3D
+
+G8P
+https://www.mouser.com/datasheet/2/307/omron_en-g8p-1189785.pdf
+
+MOC3032-M - ON SEMICONDUCTOR - Optocoupler, Triac Output, DIP
+https://www.newark.com/on-semiconductor/moc3032-m/optocoupler-phototriac-7-5kv/dp/72K8897
+
+MOC3031M, MOC3032M, MOC3033M, MOC3041M, MOC3042M, MOC3043M - 6-Pin DIP Zero-Cross Triac Driver Output Optocoupler
+http://www.farnell.com/datasheets/2277574.pdf
+
+Triac Tutorial and Triac Switching Circuits
+https://www.electronics-tutorials.ws/power/triac.html
+
+mac3030 - Google Search
+https://www.google.com/search?q=mac3030&rlz=1C1GGRV_enUS751US751&oq=mac3030&aqs=chrome.0.0l4.11381j1j7&sourceid=chrome&ie=UTF-8
+
+MAC3030-8G Littelfuse | Mouser
+https://www.mouser.com/ProductDetail/Littelfuse/MAC3030-8G?qs=sK5eIuwOod5PdHqx%252bbcN8Q%3D%3D
+
+4 Band Resistor Color Code Calculator and Chart | DigiKey Electronics
+https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band
+
+4 Band Resistor Color Code Calculator and Chart | DigiKey Electronics
+https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band
+
+dale resistors 0540 - Google Search
+https://www.google.com/search?rlz=1C1GGRV_enUS751US751&ei=aUY9XMO2I9C30PEP_f6UgAo&q=dale+resistors+0540&oq=dale+resistors+0540&gs_l=psy-ab.3...17463.18777..19059...0.0..0.66.296.5......0....1..gws-wiz.......0i71j0j0i22i30.tlnN6oCF5Vg
+
+RAC02-05SGA Recom Power | Power Supplies - Board Mount | DigiKey
+https://www.digikey.com/product-detail/en/recom-power/RAC02-05SGA/945-3047-ND/6677089
